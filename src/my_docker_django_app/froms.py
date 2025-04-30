@@ -38,7 +38,7 @@ class DDSRecordForm(forms.ModelForm):
         if category and type and category.type != type:
             raise forms.ValidationError("Выбранная категория не соответствует типу.")
 
-        if subcategory and category and subcategory!= category:
+        if subcategory and category and category!= category:
             raise forms.ValidationError("Выбранная подкатегория не соответствует категории.")
 
         return cleaned_data
