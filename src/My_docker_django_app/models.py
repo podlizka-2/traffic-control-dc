@@ -29,7 +29,7 @@ class Subcategories(models.Model):
     def __str__(self):
         return self.name
 
-class DDSRecord(models.Model):
+class DDSRecords(models.Model):
     date = models.DateTimeField()
     status = models.ForeignKey(Status, on_delete=models.PROTECT)
     type = models.ForeignKey(Type, on_delete=models.PROTECT)

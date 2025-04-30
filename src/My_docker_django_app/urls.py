@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.DDSRecordsListView.as_view(), name='ddsrecord_list'),
+    path('create/', views.DDSRecordsCreateView.as_view(), name='ddsrecord_create'),
+    path('<int:pk>/edit/', views.DDSRecordsUpdateView.as_view(), name='ddsrecord_edit'),
+    path('<int:pk>/delete/', views.DDSRecordsDeleteView.as_view(), name='ddsrecord_delete'),
+    path('load-category/', views.load_category, name='load_category'),
+    path('load-subcategories/', views.load_subcategories, name='load_subcategories'),
 ]
+

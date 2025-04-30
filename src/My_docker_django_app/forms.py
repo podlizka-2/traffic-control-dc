@@ -1,9 +1,9 @@
 from django import forms
-from .models import DDSRecord 
+from .models import DDSRecords
 
-class DDSRecordForm(forms.ModelForm):
+class DDSRecordsForm(forms.ModelForm):
     class Meta:
-        model = DDSRecord
+        model = DDSRecords
         fields = ['date', 'status', 'type', 'category', 'subcategories', 'total', 'comment']
         widgets = {
             'date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
@@ -32,13 +32,13 @@ class DDSRecordForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super().clean()
         category = cleaned_data.get('category')
-        subcategory = cleaned_data.get('subcategory')
+        subcategories = cleaned_data.get('subcategories')
         type = cleaned_data.get('type')
 
         if category and type and category.type != type:
             raise forms.ValidationError("Выбранная категория не соответствует типу.")
 
-        if subcategory and category and category!= category:
+        if subcategories and category and category!= category:
             raise forms.ValidationError("Выбранная подкатегория не соответствует категории.")
 
         return cleaned_data

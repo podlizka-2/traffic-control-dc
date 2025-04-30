@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,6 +29,7 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS","127.0.0.1").split(",")
 # Application definition
 
 INSTALLED_APPS = [
+    'my_docker_django_app.apps.My_docker_django_appConfig'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
